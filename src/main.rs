@@ -155,10 +155,7 @@ fn robots_txt() -> Option<content::RawText<&'static str>> {
 }
 
 #[get("/?<uwu>")]
-async fn index(
-    uwu: Option<bool>,
-    version_cache: &Cache<RustVersion>,
-) -> Template {
+async fn index(uwu: Option<bool>, version_cache: &Cache<RustVersion>) -> Template {
     let is_uwu = uwu.unwrap_or(false);
     render_index_with_uwu(ENGLISH.into(), version_cache, is_uwu).await
 }
